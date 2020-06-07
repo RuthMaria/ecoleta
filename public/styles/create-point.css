@@ -44,10 +44,19 @@ form fieldset{
 
 form legend {
     margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 form legend h2 {
     font-size: 24px;
+}
+
+form legend span{
+    color: var(--title-color);
+    font-size: 14px;
 }
 
 form .field {
@@ -83,7 +92,7 @@ form label {
     margin-bottom: 8px;
 }
 
-form .field-group .field + .field {
+form .field-group .field + .field { /* o field atual e todos os fields ao lado*/
     margin-left: 24px;
 }
 
