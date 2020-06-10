@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% set pageId = 'page-create-account' %}
+
+{% block title %}
+    <title>Login</title>
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/create-account.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+{% endblock styles %}
+
+{% block content %}
+    {% include 'partials/page-header.html' %}
+
+    <div class="field-group">
+        <form action="/save-account" method='post'>
+
+            <h1>Acesse a sua conta</h1>
+
+            <fieldset>
+                <div class="field">
+                    <label for="email">E-mail <sub>*</sub></label>
+                    <input type="email" name="email" placeholder="name@mail.com" required="required">
+
+                    <label for="password">Senha <sub>*</sub></label>
+                    <input type="password" name="image" placeholder="Senha" required="required">
+                </div>
+            </fieldset>
+
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+
+{% endblock content %}
+
+{% block modal %}
+    {% if saved %}
+        {% include 'partials/point-created.html' %}
+    {% endif %}
+
+    {% if error %}
+        {% include 'partials/error-point-created.html' %}
+    {% endif %}
+{% endblock modal %}
+
+{% block scripts %}
+    <script src="/scripts/create-account.js"></script>
+{% endblock scripts %}

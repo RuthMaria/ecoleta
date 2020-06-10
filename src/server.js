@@ -4,7 +4,7 @@ const nunjucks = require('nunjucks')
 const db = require('./database/db')
 const PORT = 3000
 
-// Configuration
+// COONFIGURAÇÕES
 
 /* Para trabalhar com arquivos estáticos, ignora a pasta public para poder acessar na url as pastas que estão
 dentro de public, diretamente*/
@@ -19,7 +19,7 @@ nunjucks.configure('src/views', {
     noCache: true
 })
 
-// routes
+// ROTAS
 
 server.get('/', (req, res) => {
     return res.render('index.html')
@@ -63,6 +63,18 @@ server.post('/savepoint', (req, res) => {
     db.run(query, values, afterInsertData)
 })
 
+server.get('/create-account', (req, res) => {
+    return res.render('create-account.html')
+})
+
+server.post('/save-account', (req, res) => {
+    res.send('oi')
+})
+
+server.get('/login', (req, res) => {
+    return res.render('login.html')
+})
+
 server.get('/search', (req, res) => {
 
     const search = req.query.search
@@ -78,6 +90,19 @@ server.get('/search', (req, res) => {
 
         const total = rows.length
         return res.render('search-results.html', {places: rows, total:total})
+    })
+
+})
+
+server.get('/All-places', (req, res) => {
+
+    db.all(`SELECT * FROM places`, (err, rows) => {
+        if (err) {
+            return console.log(err)
+        }
+        
+        const total = rows.length
+        return res.render('search-results.html', {places: rows, total: total})
     })
 
 })

@@ -11,11 +11,13 @@
 
 {% block content %}
     <div class="content">
-
         <header>
             <img src="/assets/logo.svg" alt="logomarca">
-            <a href="/create-point">
-                <span></span>Cadastre um ponto de coleta</a>
+            <div class = "login-sigup">
+                <a href="/All-places"><span></span>Pontos de coleta</a>
+                <a href="/login">Entrar</a>
+                <a href="/create-account">Cadastrar</a>
+            </div>
         </header>
 
         <main>
@@ -23,12 +25,8 @@
 
             <p>Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente</p>
 
-            <a href="#">
-                <span></span>
-                <strong>Pesquisar pontos de coleta</strong>
-            </a>
+            <a href="#"><span></span><strong>Pesquisar pontos de coleta</strong></a>
         </main>
-
     </div>
 {% endblock content %}
 

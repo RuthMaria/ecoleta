@@ -11,7 +11,6 @@
 - [Run the project locally](#run)
 - [Screens](#screens)
 
-
 <a id="about"></a><br>
 
 ## :books: About

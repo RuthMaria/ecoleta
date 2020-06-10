@@ -1,7 +1,7 @@
 #page-home{
     height: 130vh;  /*vh pega a altura da tela*/
     background: url('../assets/home-background.svg') no-repeat;
-    background-position: 35vw bottom;
+    background-position: 41vw;
 }
 
 #page-home .content {
@@ -11,22 +11,26 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-
 }
 
-#page-home header{
+#page-home header {
     margin-top: 48px;
     display: flex; /* todos os elementos ficam lado a lado*/
     align-items: center;
     justify-content: space-between;  
 }
 
-#page-home header a {
+#page-home header .login-sigup {
     display: flex;
     color: var(--title-color);
     font-weight: 700;
 }
 
+#page-home header .login-sigup a {
+    margin-left: 18px;
+}
+
+/*
 #page-home header a span {
     margin-right: 16px;
     display: flex;
@@ -34,7 +38,7 @@
     width: 20px;
     height: 20px;
 }
-
+*/
 #page-home main {
     max-width: 560px;
     flex: 1;
@@ -43,11 +47,11 @@
     justify-content: center;
 }
 
-#page-home main h1{
+#page-home main h1 {
     font-size: 54px;
 }
 
-#page-home main p{
+#page-home main p {
     font-size: 24px;
     line-height: 30px;
     margin-top: 24px;
