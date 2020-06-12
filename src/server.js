@@ -22,11 +22,11 @@ nunjucks.configure('src/views', {
 // ROTAS
 
 server.get('/', (req, res) => {
-    return res.render('index.html')
+    return res.render('pages/index.html')
 })
 
 server.get('/create-point', (req, res) => {
-    return res.render('create-point.html')
+    return res.render('pages/create-point.html')
 })
 
 server.post('/savepoint', (req, res) => {
@@ -55,16 +55,16 @@ server.post('/savepoint', (req, res) => {
     function afterInsertData (err) {
         if (err) {
             console.log(err)
-            return res.render("create-point.html", {error: true})
+            return res.render("pages/create-point.html", {error: true})
         }
-        return res.render("create-point.html", {saved: true})
+        return res.render("pages/create-point.html", {saved: true})
     }
 //afterInsertData está sem parametro, pois não queremos que execute imediatamente, funcione apenas como callback
     db.run(query, values, afterInsertData)
 })
 
 server.get('/create-account', (req, res) => {
-    return res.render('create-account.html')
+    return res.render('pages/create-account.html')
 })
 
 server.post('/save-account', (req, res) => {
@@ -72,7 +72,7 @@ server.post('/save-account', (req, res) => {
 })
 
 server.get('/login', (req, res) => {
-    return res.render('login.html')
+    return res.render('pages/login.html')
 })
 
 server.get('/search', (req, res) => {
@@ -80,7 +80,7 @@ server.get('/search', (req, res) => {
     const search = req.query.search
 
     if (search == "") {
-        return res.render('search-results.html', {total:0})
+        return res.render('pages/search-results.html', {total:0})
     }
 
     db.all(`SELECT * FROM places WHERE city LIKE '%${search}%'`, function (err, rows) {
@@ -89,7 +89,7 @@ server.get('/search', (req, res) => {
         }
 
         const total = rows.length
-        return res.render('search-results.html', {places: rows, total:total})
+        return res.render('pages/search-results.html', {places: rows, total:total})
     })
 
 })
@@ -102,7 +102,7 @@ server.get('/All-places', (req, res) => {
         }
         
         const total = rows.length
-        return res.render('search-results.html', {places: rows, total: total})
+        return res.render('pages/search-results.html', {places: rows, total: total})
     })
 
 })

@@ -41,7 +41,9 @@ The project registers the collection points of recyclable materials and does res
 
  ## :earth_americas: API used
  * IBGE API to find the [states](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1#api-UFs-estadosGet)
- * IBGE API to find the [cities](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1#api-Municipios-estadosUFMunicipiosGet)
+ and [cities](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1#api-Municipios-estadosUFMunicipiosGet)
+  * Facebook API to [sign up](https://developers.facebook.com/docs/facebook-login/web)
+
 
 <a id="run"></a><br>
 
@@ -50,6 +52,15 @@ The project registers the collection points of recyclable materials and does res
 ### Requirements
 - [NodeJS in its LTS version](https://nodejs.org/en/download/)
 - [Visual Studio Code](https://code.visualstudio.com/download)
+- Create a [Facebook Developer Account](https://www.facebook.com/login.php?next=https%3A%2F%2Fdevelopers.facebook.com%2Fapps%2F)
+   - Add a new app called "ecoleta"
+   - Choose "Facebook login" on products
+   - In the basic settings:
+      - Add "localhost" to the App Domains
+      - Select "Bussiness and Pages" in the category
+      - Add "https://localhost:3000/" to the Site URL
+      - Add "site" on the add platform
+      - Change the AppID to your account's
 
 ### Commands
 
@@ -82,8 +93,12 @@ https://localhost:3000
 ## :iphone: Screens
 
 ### Home 
+![Home](images/home.png)
 ### Create point
+### Sign up
+![Signup](images/signup.png)
 ### Search
+![Search](images/search.png)
 ### Search results
 ### Created point successfully
 ### Something went wrong
@@ -92,7 +107,7 @@ https://localhost:3000
 
 ## :memo: License
 
-This project is under the MIT license. See the  file [LICENSE](LICENSE.md) for more details.
+This project is under the MIT license. See the  file [LICENSE](LICENSE) for more details.
 
 ---
 

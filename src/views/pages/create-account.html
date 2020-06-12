@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'layout/layout.html' %}
 
 {% set pageId = 'page-create-account' %}
 
@@ -19,20 +19,34 @@
 
             <h1>Crie a sua conta</h1>
 
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" 
+                data-size="large"
+                data-width="400"
+                data-height="40"
+                data-button-type="continue_with"
+                data-use-continue-as="true" 
+                id="registry">                    
+            </fb:login-button>
+
+           <h6>ou</h6>
+
             <fieldset>
                 <div class="field">
                     <label for="fullname">Nome completo <sub>*</sub></label>
-                    <input type="text" name="fullname" required="required" placeholder="Nome completo">
+                    <input type="text" id="fullname" required="required" placeholder="Nome completo" value=''>
 
                     <label for="email">E-mail <sub>*</sub></label>
-                    <input type="email" name="email" placeholder="name@mail.com" required="required">
+                    <input type="email" id="email" placeholder="Name@mail.com" required="required" value=''>
 
                     <label for="password">Senha <sub>*</sub></label>
-                    <input type="password" name="image" placeholder="Senha" required="required">
+                    <input type="password" name="password" placeholder="Senha" required="required" value=''>
                 </div>
             </fieldset>
 
             <button type="submit">Cadastre-se</button>
+
+            <div id="status"></div>
+
         </form>
     </div>
 

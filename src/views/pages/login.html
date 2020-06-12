@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'layout/layout.html' %}
 
 {% set pageId = 'page-create-account' %}
 
@@ -9,7 +9,7 @@
 {% block styles %}
     <link rel="stylesheet" href="/styles/create-account.css">
     <link rel="stylesheet" href="/styles/modal.css">
-{% endblock styles %}
+ {% endblock styles %}
 
 {% block content %}
     {% include 'partials/page-header.html' %}
@@ -22,14 +22,15 @@
             <fieldset>
                 <div class="field">
                     <label for="email">E-mail <sub>*</sub></label>
-                    <input type="email" name="email" placeholder="name@mail.com" required="required">
+                    <input type="email" id="email" placeholder="name@mail.com" required="required">
 
                     <label for="password">Senha <sub>*</sub></label>
-                    <input type="password" name="image" placeholder="Senha" required="required">
+                    <input type="password" id="password" placeholder="Senha" required="required">
                 </div>
             </fieldset>
 
             <button type="submit">Entrar</button>
+
         </form>
     </div>
 
@@ -46,5 +47,5 @@
 {% endblock modal %}
 
 {% block scripts %}
-    <script src="/scripts/create-account.js"></script>
+    <script src="/scripts/login.js"></script>
 {% endblock scripts %}
