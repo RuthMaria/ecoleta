@@ -1,6 +1,9 @@
 const express = require('express')
 const server = express()
 const nunjucks = require('nunjucks')
+const session = require('express-session')
+const bcrypt = require('bcryptjs')
+const validateUser = require('../public/scripts/validateUser')
 const db = require('./database/db')
 const PORT = 3000
 
@@ -8,7 +11,6 @@ const PORT = 3000
 
 /* Para trabalhar com arquivos estáticos, ignora a pasta public para poder acessar na url as pastas que estão
 dentro de public, diretamente*/
-
 server.use(express.static('public'))
 
 // habilita o uso do body-parser
@@ -19,17 +21,89 @@ nunjucks.configure('src/views', {
     noCache: true
 })
 
+server.use(session({
+    secret: 'keysessionsecure',
+    resave: true,
+    saveUninitialized: true
+}))
+
 // ROTAS
 
 server.get('/', (req, res) => {
     return res.render('pages/index.html')
 })
 
+server.get('/All-places', (req, res) => {
+
+    db.all(`SELECT * FROM places`, (err, rows) => {
+        if (err) {
+            return console.log(err)
+        }
+        
+        const total = rows.length
+        return res.render('pages/search-results.html', {places: rows, total: total})
+    })
+
+})
+
+server.get('/login', (req, res) => {
+    return res.render('pages/login.html')
+})
+
+server.get('/create-account', (req, res) => {
+    return res.render('pages/create-account.html')
+})
+
+server.post('/save-account', (req, res) => {
+    var errorList = []
+
+    errorList = validateUser(req.body, null)
+
+    if (errorList.length > 0) {
+        res.render('pages/create-account.html', { errorList: errorList, user: req.body})
+
+    } else {
+        db.all(`SELECT * FROM users WHERE email='${req.body.email}'`, function (err, rows) {
+            if (rows.length > 0) {
+                errorList = []   
+                errorList = validateUser(req.body, rows[0].email)  
+                res.render('pages/create-account.html', { errorList: errorList, user: req.body})
+            } else {
+                
+                req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
+
+                const query = `
+                    INSERT INTO users (
+                        fullname,
+                        email,
+                        password
+                    ) VALUES (?,?,?);`
+        
+                const values = [
+                    req.body.fullname,
+                    req.body.email,
+                    req.body.password
+                ]
+
+                function afterInsertData (err) {
+                    if (err) {
+                        return res.render("pages/create-account.html", {error: true})
+                    }
+                    return res.render("pages/create-account.html", {saved: true})
+                }
+        
+                db.run(query, values, afterInsertData)
+            }
+        })
+    }        
+})
+
+
 server.get('/create-point', (req, res) => {
     return res.render('pages/create-point.html')
 })
 
-server.post('/savepoint', (req, res) => {
+server.post('/save-point', (req, res) => {
 
     const query = `
         INSERT INTO places (
@@ -63,18 +137,6 @@ server.post('/savepoint', (req, res) => {
     db.run(query, values, afterInsertData)
 })
 
-server.get('/create-account', (req, res) => {
-    return res.render('pages/create-account.html')
-})
-
-server.post('/save-account', (req, res) => {
-    res.send('oi')
-})
-
-server.get('/login', (req, res) => {
-    return res.render('pages/login.html')
-})
-
 server.get('/search', (req, res) => {
 
     const search = req.query.search
@@ -90,19 +152,6 @@ server.get('/search', (req, res) => {
 
         const total = rows.length
         return res.render('pages/search-results.html', {places: rows, total:total})
-    })
-
-})
-
-server.get('/All-places', (req, res) => {
-
-    db.all(`SELECT * FROM places`, (err, rows) => {
-        if (err) {
-            return console.log(err)
-        }
-        
-        const total = rows.length
-        return res.render('pages/search-results.html', {places: rows, total: total})
     })
 
 })

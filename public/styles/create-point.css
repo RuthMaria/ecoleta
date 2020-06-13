@@ -152,6 +152,18 @@ form button:hover {
     pointer-events: none; /*Não cria eventos de pointer*/
 }
 
+footer{
+    color:black;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 15px;
+    font-size: 17px;
+}
+
+footer a {
+    text-align: center;
+    color: black;
+}
 
 
 

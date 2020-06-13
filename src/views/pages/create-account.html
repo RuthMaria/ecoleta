@@ -13,6 +13,15 @@
 
 {% block content %}
     {% include 'partials/page-header.html' %}
+    
+    {% if errorList %} 
+        {% for err in errorList %}   
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>          
+                    {{err.text}}                           
+            </div>
+        {% endfor %} 
+    {% endif %}
 
     <div class="field-group">
         <form action="/save-account" method='post'>
@@ -33,13 +42,16 @@
             <fieldset>
                 <div class="field">
                     <label for="fullname">Nome completo <sub>*</sub></label>
-                    <input type="text" id="fullname" required="required" placeholder="Nome completo" value=''>
+                    <input type="text" value="{{user.fullname}}" name="fullname" id="fullname" required="required" placeholder="Nome completo" value=''>
 
                     <label for="email">E-mail <sub>*</sub></label>
-                    <input type="email" id="email" placeholder="Name@mail.com" required="required" value=''>
+                    <input type="email" value="{{user.email}}" name="email" id="email" placeholder="Name@mail.com" required="required" value=''>
 
                     <label for="password">Senha <sub>*</sub></label>
-                    <input type="password" name="password" placeholder="Senha" required="required" value=''>
+                    <input type="password" name="password" placeholder="Senha" required="required" value="{{user.password}}">
+                    <small id="passwordHelpBlock" class="form-text text-muted mb-3">
+                          Sua senha deve ter no mínimo 8 caracteres
+                    </small>
                 </div>
             </fieldset>
 

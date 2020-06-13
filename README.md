@@ -52,7 +52,7 @@ The project registers the collection points of recyclable materials and does res
 ### Requirements
 - [NodeJS in its LTS version](https://nodejs.org/en/download/)
 - [Visual Studio Code](https://code.visualstudio.com/download)
-- Create a [Facebook Developer Account](https://www.facebook.com/login.php?next=https%3A%2F%2Fdevelopers.facebook.com%2Fapps%2F)
+- Create a [Facebook Developer Account](https://www.facebook.com/login.php?next=https%3A%2F%2Fdevelopers.facebook.com%2Fapps%2F) and use the following [settings](https://canaltech.com.br/software/aprenda-a-adicionar-o-login-com-facebook-no-seu-site-usando-javascript-ou-php/):
    - Add a new app called "ecoleta"
    - Choose "Facebook login" on products
    - In the basic settings:
@@ -60,7 +60,7 @@ The project registers the collection points of recyclable materials and does res
       - Select "Bussiness and Pages" in the category
       - Add "https://localhost:3000/" to the Site URL
       - Add "site" on the add platform
-      - Change the AppID to your account's
+      - Change the [AppID](https://github.com/RuthMaria/NLW/blob/master/public/scripts/create-account.js#L3) to your account's
 
 ### Commands
 
@@ -93,15 +93,16 @@ https://localhost:3000
 ## :iphone: Screens
 
 ### Home 
-![Home](images/home.png)
+![Home](https://github.com/RuthMaria/NLW/blob/master/public/images/home.png)
 ### Create point
 ### Sign up
-![Signup](images/signup.png)
+![Signup](https://github.com/RuthMaria/NLW/blob/master/public/images/signup.png)
 ### Search
-![Search](images/search.png)
+![Search](https://github.com/RuthMaria/NLW/blob/master/public/images/search.png)
 ### Search results
 ### Created point successfully
 ### Something went wrong
+![Search](https://github.com/RuthMaria/NLW/blob/master/public/images/somethingWrong.png)
 
 <br>
 
