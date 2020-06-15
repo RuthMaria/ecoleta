@@ -100,9 +100,10 @@ https://localhost:3000
 ### Search
 ![Search](https://github.com/RuthMaria/NLW/blob/master/public/images/search.png)
 ### Search results
-### Created point successfully
+### Registy successfully created
+![Search](https://github.com/RuthMaria/NLW/blob/master/public/images/registryCreated.png)
 ### Something went wrong
-![Search](https://github.com/RuthMaria/NLW/blob/master/public/images/somethingWrong.png)
+![Something went wrong](https://github.com/RuthMaria/NLW/blob/master/public/images/somethingWrong.png)
 
 <br>
 

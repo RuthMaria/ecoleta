@@ -3,6 +3,8 @@ const server = express()
 const nunjucks = require('nunjucks')
 const session = require('express-session')
 const bcrypt = require('bcryptjs')
+const passport = require('passport')
+const localStrategy = require('passport-local')
 const validateUser = require('../public/scripts/validateUser')
 const db = require('./database/db')
 const PORT = 3000
@@ -24,9 +26,19 @@ nunjucks.configure('src/views', {
 server.use(session({
     secret: 'keysessionsecure',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    failureFlash: true
 }))
 
+//server.use(passport.initialize())
+//server.use(passport.session())
+
+module.exports = function(req, res, next) {
+    if(!req.session.user) {
+        return res.redirect('/');
+    }
+      return next();
+  };
 // ROTAS
 
 server.get('/', (req, res) => {
@@ -50,6 +62,25 @@ server.get('/login', (req, res) => {
     return res.render('pages/login.html')
 })
 
+server.post('/login', (req, res) => {
+   /* passport.authenticate('local', {
+        successRedirect: '/',
+        failureRedirect: '/login',
+        failureFlash: true
+    })*/
+    db.get('SELECT * FROM users WHERE email = ?', req.body.email, function (err, row) {
+        if (!row) {
+            return res.render('pages/login.html', {email:true, user: req.body})
+        }
+
+        if (bcrypt.compareSync(req.body.password, row.password,)){
+           return res.render('pages/index.html', {login:true})
+        }
+
+        return res.render('pages/login.html', {password:true, user: req.body})
+    });
+})
+
 server.get('/create-account', (req, res) => {
     return res.render('pages/create-account.html')
 })
@@ -70,8 +101,8 @@ server.post('/save-account', (req, res) => {
                 res.render('pages/create-account.html', { errorList: errorList, user: req.body})
             } else {
                 
-                req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
-
+                req.body.password  = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))            
+                
                 const query = `
                     INSERT INTO users (
                         fullname,

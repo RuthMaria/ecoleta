@@ -1,13 +1,13 @@
 {% extends 'layout/layout.html' %}
 
-{% set pageId = 'page-create-account' %}
+{% set pageId = 'page-login' %}
 
 {% block title %}
     <title>Login</title>
 {% endblock title %}
 
 {% block styles %}
-    <link rel="stylesheet" href="/styles/create-account.css">
+    <link rel="stylesheet" href="/styles/login.css">
     <link rel="stylesheet" href="/styles/modal.css">
  {% endblock styles %}
 
@@ -15,22 +15,41 @@
     {% include 'partials/page-header.html' %}
 
     <div class="field-group">
-        <form action="/save-account" method='post'>
+        <form action="/login" method='post'>
 
             <h1>Acesse a sua conta</h1>
+
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" 
+                data-size="large"
+                data-width="400"
+                data-height="40"
+                data-button-type="continue_with"
+                data-use-continue-as="true" 
+                id="registry">                    
+            </fb:login-button>
+
+           <h6>ou</h6>
 
             <fieldset>
                 <div class="field">
                     <label for="email">E-mail <sub>*</sub></label>
-                    <input type="email" id="email" placeholder="name@mail.com" required="required">
+                    <input type="email" value="{{user.email}}" name="email" id="email" placeholder="Nome@mail.com" required="required" value=''>
 
                     <label for="password">Senha <sub>*</sub></label>
-                    <input type="password" id="password" placeholder="Senha" required="required">
+                    <input type="password" id="password" name="password" placeholder="Senha" required="required">
                 </div>
             </fieldset>
 
             <button type="submit">Entrar</button>
 
+            <div id="status"></div>
+            {% if email %}
+                <div id="wrong"><p>E-mail não cadastrado</p></div>
+            {% endif %}
+
+            {% if password %}
+                <div id="wrong"><p>Senha errada</p></div>
+            {% endif %}
         </form>
     </div>
 
@@ -47,5 +66,5 @@
 {% endblock modal %}
 
 {% block scripts %}
-    <script src="/scripts/login.js"></script>
+    <script src="/scripts/create-account.js"></script>
 {% endblock scripts %}
