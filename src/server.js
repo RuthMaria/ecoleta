@@ -1,13 +1,9 @@
 const express = require('express')
 const server = express()
 const nunjucks = require('nunjucks')
-const session = require('express-session')
 const bcrypt = require('bcryptjs')
-const passport = require('passport')
-const localStrategy = require('passport-local')
 const validateUser = require('../public/scripts/validateUser')
 const db = require('./database/db')
-const PORT = 3000
 
 // COONFIGURAÇÕES
 
@@ -23,22 +19,6 @@ nunjucks.configure('src/views', {
     noCache: true
 })
 
-server.use(session({
-    secret: 'keysessionsecure',
-    resave: true,
-    saveUninitialized: true,
-    failureFlash: true
-}))
-
-//server.use(passport.initialize())
-//server.use(passport.session())
-
-module.exports = function(req, res, next) {
-    if(!req.session.user) {
-        return res.redirect('/');
-    }
-      return next();
-  };
 // ROTAS
 
 server.get('/', (req, res) => {
@@ -62,12 +42,8 @@ server.get('/login', (req, res) => {
     return res.render('pages/login.html')
 })
 
-server.post('/login', (req, res) => {
-   /* passport.authenticate('local', {
-        successRedirect: '/',
-        failureRedirect: '/login',
-        failureFlash: true
-    })*/
+server.post('/login', (req, res, next) => {
+   
     db.get('SELECT * FROM users WHERE email = ?', req.body.email, function (err, row) {
         if (!row) {
             return res.render('pages/login.html', {email:true, user: req.body})
@@ -78,7 +54,7 @@ server.post('/login', (req, res) => {
         }
 
         return res.render('pages/login.html', {password:true, user: req.body})
-    });
+    })
 })
 
 server.get('/create-account', (req, res) => {
@@ -186,6 +162,8 @@ server.get('/search', (req, res) => {
     })
 
 })
+
+const PORT = 3000
 
 server.listen(PORT, () => {
     console.log("The server is running on URL http://localhost:" + PORT)

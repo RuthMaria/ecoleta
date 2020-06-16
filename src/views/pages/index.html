@@ -13,18 +13,11 @@
     <div class="content">
         <header>
             <img src="/assets/logo.svg" alt="logomarca">
-            <div class = "login-sigup">
-                {% if login %}               
+            <div class = "login-sigup">           
                     <a href="/All-places"><span></span>Pontos de coleta</a>
                     <a href="/create-point">Cadastrar ponto de coleta</a>
-                    <a href="/logout">Log out</a>
-
-                    {% else %}
-                        <a href="/All-places"><span></span>Pontos de coleta</a>
-                        <a href="/login">Entrar</a>
-                        <a href="/create-account">Cadastrar</a>
-                 {% endif %}
-                 
+                    <a href="/login">Log in</a>
+                    <a href="/create-account">Sign up</a>                
             </div>
         </header>
 

@@ -93,17 +93,21 @@ https://localhost:3000
 ## :iphone: Screens
 
 ### Home 
-![Home](https://github.com/RuthMaria/NLW/blob/master/public/images/home.png)
-### Create point
-### Sign up
-![Signup](https://github.com/RuthMaria/NLW/blob/master/public/images/signup.png)
-### Search
-![Search](https://github.com/RuthMaria/NLW/blob/master/public/images/search.png)
+![Home](https://github.com/RuthMaria/NLW/blob/master/public/screens/home.png)
 ### Search results
+![SearchResults](https://github.com/RuthMaria/NLW/blob/master/public/screens/searchResults.png)
+### Create point
+![CreatePoint](https://github.com/RuthMaria/NLW/blob/master/public/screens/createPoint.png)
+### Sign up
+![Signup](https://github.com/RuthMaria/NLW/blob/master/public/screens/signup.png)
+### Log in
+![Login](https://github.com/RuthMaria/NLW/blob/master/public/screens/login.png)
+### Search
+![Search](https://github.com/RuthMaria/NLW/blob/master/public/screens/search.png)
 ### Registy successfully created
-![Search](https://github.com/RuthMaria/NLW/blob/master/public/images/registryCreated.png)
+![Search](https://github.com/RuthMaria/NLW/blob/master/public/screens/registryCreated.png)
 ### Something went wrong
-![Something went wrong](https://github.com/RuthMaria/NLW/blob/master/public/images/somethingWrong.png)
+![Something went wrong](https://github.com/RuthMaria/NLW/blob/master/public/screens/somethingWrong.png)
 
 <br>
 

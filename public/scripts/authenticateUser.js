@@ -2,8 +2,9 @@ const LocalStrategy = require('passport-local').Strategy // used to authenticate
 const bcrypt = require('bcryptjs') // used to encode a password
 const passport = require('passport')
 var sqlite3 = require('sqlite3');
+const path = require('path')
 
-var db = new sqlite3.Database('../src/database/database.sqlite3'); // to use the database
+var db = new sqlite3.Database(path.resolve(__dirname, 'database.db')); // to use the database
 
 module.exports = function (passport) {
 
