@@ -15,7 +15,7 @@
 
 ## :books: About
 <p align="justify">The Ecoleta website was developed during the Next Level Week (NLW) starter trail, by Rocketseat through instructor Mayk Brito. The goal of NLW is to create a real application from scratch, covering various concepts of web programming, and thus help to advance to the next level in programming. <br>
-The project registers the collection points of recyclable materials and does research, by city, of these collection points. In the registration of collection points, the IBGE API was used to find the states and cities. The site is also responsive, adapting to different screen sizes.</p>
+The project registers the collection points of recyclable materials and does research, by city, of these collection points. In the registration of collection points, the IBGE API was used to find the states and cities. The Facebook API was used to register users. The site is also responsive, adapting to different screen sizes.</p>
 
 <a id="technologies"></a><br>
 
@@ -27,7 +27,7 @@ The project registers the collection points of recyclable materials and does res
  * SQL
  * SQLite
  * Express
- * Template engine Nunjucks
+ * Nunjucks
 
 <a id="dependencies"></a><br>
 
@@ -36,6 +36,7 @@ The project registers the collection points of recyclable materials and does res
 * Nodemon
 * Nunjucks
 * Sqlite3
+* bcryptjs
 
 <a id="api"></a><br>
 

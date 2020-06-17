@@ -36,6 +36,10 @@
     #page-create-point .field-group .field + .field {
         margin-left: 0;
     }
+
+    #page-create-account form #registry {
+        width: 50%;
+    }
 }
 
 @media (min-width: 1700px) {
