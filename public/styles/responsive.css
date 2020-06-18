@@ -10,11 +10,12 @@
         text-align: center;
     }
 
-    #page-home header a {
+    #page-home header .login-sigup{
         position: absolute;
-        bottom: -30px;
-        left: 50%;
-        transform: translateX(-50%);
+        top: 150px;
+        transform: translateX(-30%);
+        align-items: center;
+        text-align: center;
     }
 
     #page-home main {
@@ -38,7 +39,7 @@
     }
 
     #page-create-account form #registry {
-        width: 50%;
+        width: 180px;
     }
 }
 
@@ -53,3 +54,14 @@
         background-position-y: 200px;
     }
 }
+
+@media (max-height: 320px) {
+    #page-login .field-group{
+        width: 100%;
+        font-size: 16px;
+    }
+    #page-login form h1 {
+        font-size: 16px;
+    }
+}
+

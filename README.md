@@ -10,6 +10,8 @@
 - [API used](#api)
 - [Run the project locally](#run)
 - [Screens](#screens)
+- [How to contribute](#contribute)
+- [License](#license)
 
 <a id="about"></a><br>
 
@@ -110,7 +112,16 @@ https://localhost:3000
 ### Something went wrong
 ![Something went wrong](https://github.com/RuthMaria/NLW/blob/master/public/screens/somethingWrong.png)
 
-<br>
+<a id="contribute"></a><br>
+
+## :thinking: How to contribute
+
+- Fork this repository,
+- Create a branch with your feature: `git checkout -b my-feature`
+- Commit your changes: `git commit -m 'feat: My new feature'`
+- Push your branch: `git push origin my-feature`
+
+<br><a id="license"></a><br>
 
 ## :memo: License
 
