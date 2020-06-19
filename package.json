@@ -1,5 +1,5 @@
 {
-  "name": "NLW",
+  "name": "ecoleta",
   "version": "1.0.0",
   "main": "src/server.js",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RuthMaria/NLW.git"
+    "url": "git+https://github.com/RuthMaria/ecoleta.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RuthMaria/NLW/issues"
+    "url": "https://github.com/RuthMaria/ecoleta/issues"
   },
-  "homepage": "https://github.com/RuthMaria/NLW#readme",
+  "homepage": "https://github.com/RuthMaria/ecoleta#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",

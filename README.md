@@ -1,37 +1,70 @@
 
 <p align="center">
-  <img  src="./public/assets/logo.svg">
+  <img  src="./public/assets/logo.svg"  width="220px">
 </p>
 
-## :information_source: Índice
-- [About](#about)
-- [Technologies Used](#technologies)
-- [Dependencies](#dependencies)
-- [API used](#api)
-- [Run the project locally](#run)
-- [Screens](#screens)
-- [How to contribute](#contribute)
-- [License](#license)
-
-<a id="about"></a><br>
+<br>
 
 ## :books: About
 <p align="justify">The Ecoleta website was developed during the Next Level Week (NLW) starter trail, by Rocketseat through instructor Mayk Brito. The goal of NLW is to create a real application from scratch, covering various concepts of web programming, and thus help to advance to the next level in programming. <br>
 The project registers the collection points of recyclable materials and does research, by city, of these collection points. In the registration of collection points, the IBGE API was used to find the states and cities. The Facebook API was used to register users. The site is also responsive, adapting to different screen sizes.</p>
 
-<a id="technologies"></a><br>
+<br>
 
- ## :computer: Technologies Used
+## :iphone: Screens
+<br>
+
+* ### Home 
+![Home](https://github.com/RuthMaria/NLW/blob/master/public/screens/home.png) 
+
+<br>
+
+* ### Search results
+![SearchResults](https://github.com/RuthMaria/NLW/blob/master/public/screens/searchResults.png) 
+
+<br>
+
+* ### Create point
+![CreatePoint](https://github.com/RuthMaria/NLW/blob/master/public/screens/createPoint.png) 
+
+<br>
+
+* ### Sign up
+![Signup](https://github.com/RuthMaria/NLW/blob/master/public/screens/signup.png) 
+
+<br>
+
+* ### Log in
+![Login](https://github.com/RuthMaria/NLW/blob/master/public/screens/login.png) 
+
+<br>
+
+* ### Search
+![Search](https://github.com/RuthMaria/NLW/blob/master/public/screens/search.png) 
+
+<br>
+
+* ### Registy successfully created
+![Search](https://github.com/RuthMaria/NLW/blob/master/public/screens/registryCreated.png) 
+
+<br>
+
+* ### Something went wrong
+![Something went wrong](https://github.com/RuthMaria/NLW/blob/master/public/screens/somethingWrong.png) 
+
+<br>
+
+## :computer: Technologies Used
  * HTML
  * CSS
  * JavaScript
  * Node.js
- * SQL
- * SQLite
  * Express
  * Nunjucks
-
-<a id="dependencies"></a><br>
+ * SQLite
+ * SQL
+ 
+<br>
 
 ## :beginner: Dependencies
 * Express
@@ -40,7 +73,7 @@ The project registers the collection points of recyclable materials and does res
 * Sqlite3
 * bcryptjs
 
-<a id="api"></a><br>
+<br>
 
  ## :earth_americas: API used
  * IBGE API to find the [states](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1#api-UFs-estadosGet)
@@ -48,7 +81,7 @@ The project registers the collection points of recyclable materials and does res
   * Facebook API to [sign up](https://developers.facebook.com/docs/facebook-login/web)
 
 
-<a id="run"></a><br>
+<br>
 
 ## :gear: Run the project locally
 
@@ -91,28 +124,7 @@ npm start
 https://localhost:3000
 ```
 
-<a id="screens"></a><br>
-
-## :iphone: Screens
-
-### Home 
-![Home](https://github.com/RuthMaria/NLW/blob/master/public/screens/home.png)
-### Search results
-![SearchResults](https://github.com/RuthMaria/NLW/blob/master/public/screens/searchResults.png)
-### Create point
-![CreatePoint](https://github.com/RuthMaria/NLW/blob/master/public/screens/createPoint.png)
-### Sign up
-![Signup](https://github.com/RuthMaria/NLW/blob/master/public/screens/signup.png)
-### Log in
-![Login](https://github.com/RuthMaria/NLW/blob/master/public/screens/login.png)
-### Search
-![Search](https://github.com/RuthMaria/NLW/blob/master/public/screens/search.png)
-### Registy successfully created
-![Search](https://github.com/RuthMaria/NLW/blob/master/public/screens/registryCreated.png)
-### Something went wrong
-![Something went wrong](https://github.com/RuthMaria/NLW/blob/master/public/screens/somethingWrong.png)
-
-<a id="contribute"></a><br>
+<br>
 
 ## :thinking: How to contribute
 
@@ -121,7 +133,7 @@ https://localhost:3000
 - Commit your changes: `git commit -m 'feat: My new feature'`
 - Push your branch: `git push origin my-feature`
 
-<br><a id="license"></a><br>
+<br>
 
 ## :memo: License
 
